@@ -1,0 +1,29 @@
+.btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-success {
+  color: #198754;
+  border-color: #198754;
+  transition: all 0.3s;
+}
+
+.btn-success:hover, .btn-success.active{
+    color: #ffff;
+  background-color: #198754;
+}
+
+.btn-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+  transition: all 0.3s;
+}
+
+.btn-danger:hover, .btn-danger.active{
+  color: #ffff;
+  background-color: #dc3545;
+}

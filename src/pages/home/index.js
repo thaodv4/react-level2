@@ -9,7 +9,7 @@ import {
   actionQuizMakerRequest,
   actionQuizMakerReset,
   actionQuizMakerSuccess,
-} from "../../reducer/quiz-maker/actions"
+} from "../../reducer/quiz-maker/actions";
 import { opentdbApi } from "../../shared/services/opentdb-api";
 import {
   actionQuizQuestionCalculateResults,
@@ -20,13 +20,8 @@ import {
   actionQuizQuestionSuccess,
 } from "../../reducer/quiz-question/actions";
 import { useNavigate } from "react-router-dom";
-
-const isValidOptions = (value) => {
-  for (var key in value) {
-    if (!value[key]) return false;
-  }
-  return true;
-};
+import { PathConstants } from "../../shared/constants/PathConstants";
+import { isValidOptions } from "./modules/isValidOptions";
 
 const Home = () => {
   const { dispatchQuizMaker, dispatchQuizQuestions, quizMaker, quizQuestions } =
@@ -82,7 +77,7 @@ const Home = () => {
 
   const handleSubmitQuizQuestion = async () => {
     dispatchQuizQuestions(actionQuizQuestionCalculateResults());
-    navigate("/result");
+    navigate(PathConstants.Result);
   };
 
   const handleChoseQuestion = (answer) => {

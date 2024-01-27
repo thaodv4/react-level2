@@ -4,6 +4,7 @@ import QuizQuestions from "../../components/quiz-questions";
 import { QuizAnswers } from "../../components/quiz-answers";
 import Button from "../../components/button";
 import { useNavigate } from "react-router-dom";
+import { PathConstants } from "../../shared/constants/PathConstants";
 
 const Result = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Result = () => {
   }, [isSubmitQuizMaker]);
 
   const handleNewQuiz = useCallback(() => {
-    navigate("/", {
+    navigate(PathConstants.Home, {
       replace: true,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

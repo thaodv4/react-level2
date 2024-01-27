@@ -1,7 +1,9 @@
 import {
   QUIZ_MAKER_CHANGE_SUBMIT_STATUS,
+  QUIZ_MAKER_CHANG_SELECTED,
   QUIZ_MAKER_FAIL,
   QUIZ_MAKER_REQUEST,
+  QUIZ_MAKER_RESET,
   QUIZ_MAKER_SUCCESS,
 } from "./actions";
 
@@ -10,6 +12,10 @@ const initial = {
   isLoading: false,
   error: null,
   isSubmit: false,
+  selected: {
+    category: "",
+    difficulty: "",
+  },
 };
 
 const reducer = (state, { type, payload }) => {
@@ -39,6 +45,19 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         isSubmit: payload,
+      };
+    case QUIZ_MAKER_RESET:
+      return {
+        ...initial,
+        triviaCategories: state.triviaCategories,
+      };
+    case QUIZ_MAKER_CHANG_SELECTED:
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
+          ...payload,
+        },
       };
     default:
       return state;

@@ -12,8 +12,9 @@
   transition: all 0.3s;
 }
 
-.btn-success:hover, .btn-success.active{
-    color: #ffff;
+.btn-success:hover:enabled,
+.btn-success.active {
+  color: #ffff;
   background-color: #198754;
 }
 
@@ -23,7 +24,8 @@
   transition: all 0.3s;
 }
 
-.btn-danger:hover, .btn-danger.active{
+.btn-danger:hover:enabled,
+.btn-danger.active {
   color: #ffff;
   background-color: #dc3545;
 }

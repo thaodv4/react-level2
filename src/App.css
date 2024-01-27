@@ -1,3 +1,27 @@
 .App {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.App .title {
+  text-align: center;
+}
+
+.App .quiz-maker-container {
+  margin-top: 28px;
+}
+
+.App .quiz-questions-container {
+  margin-top: 40px;
+}
+
+.App .quiz-answers-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.App .create-new-quiz-container{
+  margin-top: 24px;
   text-align: center;
 }

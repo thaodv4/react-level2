@@ -1,14 +1,14 @@
 export const Difficulty = [
   {
-    name: 'Easy',
-    id: 'easy',
+    name: "Easy",
+    id: "easy",
   },
   {
-    name: 'Medium',
-    id: 'medium',
+    name: "Medium",
+    id: "medium",
   },
   {
-    name: 'Hard',
-    id: 'hard',
+    name: "Hard",
+    id: "hard",
   },
 ];

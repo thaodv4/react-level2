@@ -1,49 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "../select";
 import { Difficulty } from "../../shared/constants/Difficulty";
 import Button from "../button";
 
-const QuizMaker = ({ triviaCategories, onSubmit, disabled }) => {
-  const [state, setState] = useState({ category: "", difficulty: "" });
-
-  const onChange = (name) => (event) => {
-    setState({ ...state, [name]: event.target.value });
-  };
-
-  const isValidOptions = () => {
-    for (var key in state) {
-      if (!state[key]) return false;
-    }
-    return true;
-  };
-
-  const onClick = (event) => {
-    if (isValidOptions()) {
-      onSubmit(state, event);
-    }
+const QuizMaker = ({
+  triviaCategories,
+  onSubmit,
+  disabled,
+  onChangeSelected,
+  selected,
+}) => {
+  const handleChange = (name) => (event) => {
+    onChangeSelected({ [name]: event.target.value });
   };
 
   return (
     <div>
       <Select
-        onChange={onChange("category")}
+        onChange={handleChange("category")}
         name="category"
         id="categorySelect"
         options={triviaCategories}
-        value={state.category}
+        value={selected.category}
         defaultOptions={{ name: "Select a category", id: "" }}
         disabled={disabled}
       />
       <Select
-        onChange={onChange("difficulty")}
+        onChange={handleChange("difficulty")}
         name="difficulty"
         options={Difficulty}
-        value={state.difficulty}
+        value={selected.difficulty}
         id="difficultySelect"
         defaultOptions={{ name: "Select a difficulty", id: "" }}
         disabled={disabled}
       />
-      <Button id="createBtn" onClick={onClick} disabled={disabled}>
+      <Button id="createBtn" onClick={onSubmit} disabled={disabled}>
         Create
       </Button>
     </div>

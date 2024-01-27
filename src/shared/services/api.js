@@ -8,7 +8,7 @@ export class API {
     try {
       return await fetch(`${this.baseUrl}${url}`, {
         method: "GET",
-        ...options
+        ...options,
       });
     } catch (err) {
       return err;

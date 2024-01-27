@@ -57,7 +57,7 @@ const Result = () => {
         />
       </div>
       <div className="create-new-quiz-container">
-        <Button onClick={handleNewQuiz}>Create New Quiz</Button>
+        <Button onClick={handleNewQuiz}>Create A New Quiz</Button>
       </div>
     </>
   );

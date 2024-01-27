@@ -35,8 +35,8 @@ function App() {
     >
       <div className="App">
         <Routes>
-          <Route path={PathConstants.Home} index element={<Home />} />
-          <Route path={PathConstants.Result} index element={<Result />} />
+          <Route path={PathConstants.Home} element={<Home />} />
+          <Route path={PathConstants.Result} element={<Result />} />
         </Routes>
       </div>
     </AppContext.Provider>

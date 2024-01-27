@@ -1,5 +1,5 @@
 import "./style.css";
-const Button = ({ danger, active, disabled, children, ...props }) => {
+const Button = ({ danger, active, children, ...props }) => {
   return (
     <button
       {...props}

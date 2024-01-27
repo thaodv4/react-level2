@@ -13,7 +13,7 @@ const Result = () => {
 
   const {
     numberOfCorrectAnswer,
-    numberOfIncorrectAnswer,
+    totalAnswer,
     isCompletedCalculate,
   } = quizQuestions;
 
@@ -53,7 +53,7 @@ const Result = () => {
       <div className="quiz-answers-container">
         <QuizAnswers
           correct={numberOfCorrectAnswer}
-          total={numberOfCorrectAnswer + numberOfIncorrectAnswer}
+          total={totalAnswer}
         />
       </div>
       <div className="create-new-quiz-container">

@@ -15,7 +15,7 @@ const initial = {
   isCompletedCalculate: false,
   isShowBtnSubmit: false,
   numberOfCorrectAnswer: 0,
-  numberOfIncorrectAnswer: 0,
+  totalAnswer: 0,
 };
 
 const reducer = (state, { type, payload }) => {
@@ -39,6 +39,7 @@ const reducer = (state, { type, payload }) => {
             answers: shuffleArray([correct_answer, ...incorrect_answers]),
           };
         }),
+        totalAnswer: payload.length,
         error: null,
       };
     case QUIZ_QUESTION_FAIL:
@@ -71,19 +72,15 @@ const reducer = (state, { type, payload }) => {
       };
     case QUIZ_QUESTION_CALCULATE_RESULTS:
       let numberOfCorrectAnswer = 0;
-      let numberOfIncorrectAnswer = 0;
 
       state.questions.forEach((item) => {
         if (item.selectedAnswer === item.correct_answer) {
           numberOfCorrectAnswer++;
-        } else {
-          numberOfIncorrectAnswer++;
         }
       });
       return {
         ...state,
         numberOfCorrectAnswer,
-        numberOfIncorrectAnswer,
         isCompletedCalculate: true,
       };
     case QUIZ_QUESTION_RESET:

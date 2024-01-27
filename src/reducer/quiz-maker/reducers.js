@@ -9,7 +9,7 @@ import {
 
 const initial = {
   triviaCategories: [],
-  isLoading: false,
+  isLoading: true,
   error: null,
   isSubmit: false,
   selected: {
@@ -64,7 +64,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export const quizMakerStore = {
+export const quizMaker = {
   reducer,
   initial,
 };

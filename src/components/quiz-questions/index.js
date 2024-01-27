@@ -13,22 +13,20 @@ const QuizQuestions = ({
 }) => {
   return (
     <div className="quiz-question-box">
-      {questions.map((question) => {
-        return (
-          <Question
-            selectedAnswer={question.selectedAnswer}
-            key={question.question}
-            {...question}
-            isShowAnswer={isShowAnswer}
-            onChangeAnswer={(selectedAnswer) => {
-              onChoseQuestion({
-                question: question.question,
-                selectedAnswer,
-              });
-            }}
-          />
-        );
-      })}
+      {questions.map((question) => (
+        <Question
+          selectedAnswer={question.selectedAnswer}
+          key={question.question}
+          isShowAnswer={isShowAnswer}
+          onChangeAnswer={(selectedAnswer) => {
+            onChoseQuestion({
+              question: question.question,
+              selectedAnswer,
+            });
+          }}
+          {...question}
+        />
+      ))}
       {isShowBtnSubmit && <Button onClick={onSubmit}>Submit</Button>}
     </div>
   );

@@ -11,17 +11,17 @@
   margin-top: 28px;
 }
 
-.App .quiz-questions-container {
+.quiz-questions-container {
   margin-top: 40px;
 }
 
-.App .quiz-answers-container {
+.quiz-answers-container {
   display: flex;
   justify-content: center;
   margin-top: 24px;
 }
 
-.App .create-new-quiz-container{
+.create-new-quiz-container {
   margin-top: 24px;
   text-align: center;
 }

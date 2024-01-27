@@ -1,25 +1,16 @@
-import React, { useMemo } from "react";
-import { shuffleArray } from "../../shared/utils/shuffle-array";
+import React from "react";
 import Button from "../button";
 import "./style.css";
 
 const Question = ({
   question,
-  correct_answer,
-  incorrect_answers,
+  answers,
   disabled,
   onChangeAnswer,
   selectedAnswer,
   isShowAnswer,
+  correct_answer,
 }) => {
-  let answers = useMemo(() => {
-    if (correct_answer && incorrect_answers) {
-      return shuffleArray([correct_answer, ...incorrect_answers]);
-    }
-    return [];
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div className="question-box">
       <p

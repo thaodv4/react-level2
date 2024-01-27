@@ -1,3 +1,4 @@
+import { shuffleArray } from "../../shared/utils/shuffle-array";
 import {
   QUIZ_QUESTION_CALCULATE_RESULTS,
   QUIZ_QUESTION_CHOSE_ANSWER,
@@ -11,7 +12,7 @@ const initial = {
   questions: [],
   isLoading: false,
   error: null,
-  isSubmit: false,
+  isCompletedCalculate: false,
   isShowBtnSubmit: false,
   numberOfCorrectAnswer: 0,
   numberOfIncorrectAnswer: 0,
@@ -30,7 +31,14 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        questions: payload.map((item) => ({ ...item, selectedAnswer: "" })),
+        questions: payload.map((item) => {
+          const { correct_answer, incorrect_answers } = item;
+          return {
+            ...item,
+            selectedAnswer: "",
+            answers: shuffleArray([correct_answer, ...incorrect_answers]),
+          };
+        }),
         error: null,
       };
     case QUIZ_QUESTION_FAIL:
@@ -76,7 +84,7 @@ const reducer = (state, { type, payload }) => {
         ...state,
         numberOfCorrectAnswer,
         numberOfIncorrectAnswer,
-        isSubmit: true,
+        isCompletedCalculate: true,
       };
     case QUIZ_QUESTION_RESET:
       return { ...initial };
@@ -85,7 +93,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export const quizQuestionStore = {
+export const quizQuestion = {
   reducer,
   initial,
 };

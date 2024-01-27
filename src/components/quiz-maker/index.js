@@ -21,7 +21,7 @@ const QuizMaker = ({
         name="category"
         id="categorySelect"
         options={triviaCategories}
-        value={selected.category}
+        value={selected?.category}
         defaultOptions={{ name: "Select a category", id: "" }}
         disabled={disabled}
       />
@@ -29,7 +29,7 @@ const QuizMaker = ({
         onChange={handleChange("difficulty")}
         name="difficulty"
         options={Difficulty}
-        value={selected.difficulty}
+        value={selected?.difficulty}
         id="difficultySelect"
         defaultOptions={{ name: "Select a difficulty", id: "" }}
         disabled={disabled}

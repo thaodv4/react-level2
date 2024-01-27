@@ -35,7 +35,11 @@ const Home = () => {
     selected: quizMakerSelected,
   } = quizMaker;
 
-  const { isShowBtnSubmit, isSubmit: isSubmitQuestions } = quizQuestions;
+  const {
+    isShowBtnSubmit,
+    isSubmit: isSubmitQuestions,
+    isLoading: isLoadingQuestions,
+  } = quizQuestions;
 
   useEffect(() => {
     dispatchQuizMaker(actionQuizMakerReset());
@@ -100,6 +104,7 @@ const Home = () => {
           onSubmit={() => handleCreateQuiz(quizMakerSelected)}
         />
       </div>
+      {isLoadingQuestions && "Loading..."}
       {quizQuestions.questions.length ? (
         <div className="quiz-questions-container">
           <QuizQuestions
